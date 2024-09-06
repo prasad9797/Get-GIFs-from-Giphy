@@ -1,0 +1,9 @@
+<input type="text" placeholder="Search for GIFs" name="GifsName" #searchInput />
+<button (click)="searchGif(searchInput.value)">Search</button>
+
+@for(gifs of gifResults$ | async ; track gifs.id){
+<div class="card">
+  <h3>{{ gifs.title }}</h3>
+  <img [src]="gifs.images.original.url" />
+</div>
+}
